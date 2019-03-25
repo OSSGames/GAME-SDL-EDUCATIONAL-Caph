@@ -1,0 +1,57 @@
+# vim: enc=utf8 spell spelllang=en
+#
+
+* 27 Dec 2009
+
+	This file created
+	Build system reconstructed
+	File structure improved
+	Git repository created
+
+
+* 31 Dec 2009
+
+	Build system improved
+	README changed
+	Added resolution changing
+	Added map conversion script
+	Added flying objects
+	Maps moved to maps/
+	Deleted map conversion script
+	Added patch by Alexander Potashev
+	Maps improved, added new maps
+
+
+* 28 Jun 2010
+
+	Added the data files
+	Fixed some issues in doc
+
+
+* 11 Sep 2010
+
+	Fixed greatest bug in physics core by one line :)
+	Fixed compilation warnings
+	Improvement of build system
+	Improvement of README
+	Added colored and moveable brush
+	Added smoothness of fading
+	Added a few maps
+	Released 1.0 version
+
+
+* 16 Sep 2010
+
+	Improved resolution changing
+	Added config from $HOME directory
+	Improvements for non OpenGL mode
+	Small fix for build system
+	Branding has been performed :]
+	Added icon file
+
+
+* 16 Oct 2010
+
+	Fixed 3086595 tracker bug (Installing scripts)
+	Improved one of maps
+

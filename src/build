@@ -1,0 +1,6 @@
+#!/bin/bash
+
+make -f caph.mk clean all	|| exit
+strip caph
+test -d ../bin && cp caph ../bin
+

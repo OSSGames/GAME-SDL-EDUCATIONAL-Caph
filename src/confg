@@ -1,0 +1,37 @@
+#!/bin/bash
+
+test "$CFLAGS"	|| CFLAGS='-Wall -O3 -ffast-math -pipe -g3'
+test "$CC"	|| CC='gcc'
+
+CFLAGS+=' -I../include -std=c99 -D_XOPEN_SOURCE=600'
+CFLAGS+=' -D_OPENGL'
+
+if which sdl-config > /dev/null; then
+	CFLAGS+=$(sdl-config --cflags | sed 's/^/\ /')
+	LFLAGS+=$(sdl-config --libs | sed 's/^/\ /')
+else
+	echo confg: libSDL is required && exit 1
+fi
+
+if which pkg-config > /dev/null && pkg-config --exists libpng; then
+	CFLAGS+=$(pkg-config --cflags libpng | sed 's/^/\ /')
+	LFLAGS+=$(pkg-config --libs libpng | sed 's/^/\ /')
+else
+	LFLAGS+=$(echo '-lpng' | sed 's/^/\ /')
+fi
+
+if true; then
+	LFLAGS+=$(echo '-lm' | sed 's/^/\ /')
+fi
+
+if which pkg-config > /dev/null && pkg-config --exists gl; then
+	CFLAGS+=$(pkg-config --cflags gl | sed 's/^/\ /')
+	LFLAGS+=$(pkg-config --libs gl | sed 's/^/\ /')
+else
+	LFLAGS+=$(echo '-lGL' | sed 's/^/\ /')
+fi
+
+export CC CFLAGS LFLAGS
+
+./mkgen	> caph.mk		|| exit
+

@@ -1,0 +1,106 @@
+# vim: tw=78 enc=utf8 spell spelllang=en
+#
+
+	1. DESCRIPTION
+
+It is a sandbox game, based on physics. The game aim is to make contact red
+object with green object. You can use various objects, solid, wire (rope), and
+bendable objects. Gravitation will help you.
+
+
+	2. ABSTRACT
+
+The red circle misses his green friend. And the only one who can help them to
+be together again is you. ^_^ With one flick of your mouse you can draw him a
+rope ('S' button), a  metal stick ('A'), or a wire, made from some soft metal
+('B'), or take them away from him, one by one ('D'). You can even stop the time
+('T') and give him a break while you'll rethink your actions or draw something
+so complicated, that you won't be able to finish it with only one line. And
+when you'll think that you have to take a break yourself, you can leave this
+guy for a moment ('Q') and return to the boring "real" world.
+
+
+	3. CONTROLS
+
+The controls is still not very easy. However, to make easy the controls of such
+game is difficult.
+
+For painting is used mouse or analogue pointing device. First button of pointer
+is used for paint object. Second button is used for picking objects in edit
+mode or for change object type in game mode.
+
+Regarding keyboard, following list describes keys purposes,
+
+General,
+
+	Q	- Quit
+	D/ESC	- Delete last added object
+	T	- Time control (on/off)
+	P	- Edit mode (on/off)
+	R	- Reload level
+	N	- Go to next level
+	M	- Go to previous level
+	K	- Save level (to the default save.map)		(*)
+	E	- Erase all					(*)
+	H	- Do not link object mode (on/off)		(*) (**)
+	U	- Brush rotation mode (on/off)
+
+Object types,
+
+	A	- Select regular object (solid)
+	С	- Select motionless object			(*)
+	S	- Select wire object (rope)
+	B	- Select bendable object
+	X	- Select phantom object (color is selected on 1/2/3)	(*)
+	F	- Select flying object				(*)
+
+Object flags,
+
+	4/5	- Toggle player (red) and target (green) flags	(*)
+	L	- Toggle loop flag (only for ropes)		(*)
+	G	- Toggle background object flag			(*)
+
+*	- For the edit mode only
+**	- It does not mean that object does not interact with others
+
+
+	4. CONFIGURATION
+
+It is very primitive, there is only one file, 'caph.conf' which contains,
+
+<width> <height> <mode>
+
+Fields description,
+
+<width>		- Screen width in pixels
+<height>	- Screen height in pixels
+<mode>		- '1' (fullscreen) or '0' (window)
+
+
+	5. BUILDING
+
+Make sure that you have installed following packages,
+
+libSDL
+libpng
+OpenGL	(optional)
+
+If you do not want compile Caph with OpenGL comment out appropriate line in
+'confg' script.
+
+After, go to the 'src' directory and perform,
+
+$ ./confg
+$ ./build
+
+Binary will copied to the 'bin' directory. Also you can define your compilation
+flags before calling 'confg' by CFLAGS environment variable, for example if you
+use Gentoo,
+
+$ source /etc/make.conf
+
+
+	6. FEEDBACK
+
+Roman Belov <amaora@users.sourceforge.net>
+
